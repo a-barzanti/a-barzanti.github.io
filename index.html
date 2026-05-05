@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Alessandro Barzanti — Senior Full Stack TypeScript Developer</title>
+<meta name="description" content="Senior Full Stack Engineer specialising in TypeScript, React, Node.js, cloud-native platforms and AI-powered product experiences." />
+<meta property="og:title" content="Alessandro Barzanti — Senior Full Stack TypeScript Developer" />
+<meta property="og:description" content="React / Node.js / Cloud / AI. 26 years building production-ready web applications." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0b0d10;
+    --bg-elevated: #11151a;
+    --surface: #161b22;
+    --border: #1f2630;
+    --text: #e6edf3;
+    --text-muted: #8b949e;
+    --text-dim: #6e7681;
+    --accent: #7ee787;
+    --accent-2: #79c0ff;
+    --accent-3: #ffa657;
+    --gradient: linear-gradient(135deg, #79c0ff 0%, #7ee787 50%, #ffa657 100%);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 0%, rgba(121, 192, 255, 0.08), transparent 50%),
+      radial-gradient(circle at 80% 100%, rgba(126, 231, 135, 0.06), transparent 50%),
+      radial-gradient(circle at 50% 50%, rgba(255, 166, 87, 0.04), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  header.hero {
+    margin-bottom: 4rem;
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  .mono {
+    font-family: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    letter-spacing: 0.02em;
+  }
+
+  .mono::before { content: '> '; color: var(--accent); }
+
+  h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0.75rem 0 1rem;
+    letter-spacing: -0.03em;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .tagline {
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: var(--text);
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+
+  .meta span { display: inline-flex; align-items: center; gap: 0.4rem; }
+
+  .meta a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+  .meta a:hover { color: var(--accent-2); }
+
+  .summary {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    max-width: 720px;
+    margin-bottom: 2rem;
+  }
+
+  .summary strong { color: var(--text); font-weight: 500; }
+
+  section { margin-bottom: 4rem; animation: fadeInUp 0.8s ease-out backwards; }
+  section:nth-of-type(1) { animation-delay: 0.1s; }
+  section:nth-of-type(2) { animation-delay: 0.2s; }
+  section:nth-of-type(3) { animation-delay: 0.3s; }
+
+  h2 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+
+  .link-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .link-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient);
+    opacity: 0;
+    transition: opacity 0.25s;
+    z-index: 0;
+  }
+
+  .link-card:hover {
+    border-color: var(--accent-2);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px -10px rgba(121, 192, 255, 0.3);
+  }
+
+  .link-card > * { position: relative; z-index: 1; }
+
+  .link-icon {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--accent-2);
+  }
+
+  .link-card:hover .link-icon { color: var(--accent); border-color: var(--accent); }
+
+  .link-icon svg { width: 18px; height: 18px; }
+
+  .link-body { flex: 1; min-width: 0; }
+
+  .link-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .link-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .chip {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    padding: 0.35rem 0.7rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-muted);
+    transition: all 0.2s;
+  }
+
+  .chip:hover {
+    border-color: var(--accent-2);
+    color: var(--accent-2);
+  }
+
+  .highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+
+  .highlight {
+    padding: 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+
+  .highlight-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.75rem;
+    font-weight: 600;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.4rem;
+  }
+
+  .highlight-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+
+  footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  footer a { color: var(--text-muted); text-decoration: none; }
+  footer a:hover { color: var(--accent-2); }
+
+  .pulse {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-right: 0.5rem;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(126, 231, 135, 0.5); }
+    50% { opacity: 0.7; box-shadow: 0 0 0 8px rgba(126, 231, 135, 0); }
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 600px) {
+    .container { padding: 3rem 1.25rem; }
+    .meta { gap: 0.75rem 1.25rem; font-size: 0.9rem; }
+    footer { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+
+    <header class="hero">
+      <p class="mono">whoami</p>
+      <h1>Alessandro Barzanti</h1>
+      <p class="tagline">Senior Full Stack TypeScript Developer — React / Node.js / Cloud / AI</p>
+      <div class="meta">
+        <span>📍 Rome, Italy</span>
+        <span><a href="mailto:a.barzanti@gmail.com">a.barzanti@gmail.com</a></span>
+        <span><span class="pulse"></span>Available for remote contracts</span>
+      </div>
+      <p class="summary">
+        Senior Full Stack Engineer with <strong>26 years</strong> of experience building production-ready web applications across React, Next.js, Node.js and cloud-native platforms. I specialise in <strong>TypeScript ecosystems</strong>, modern API design, scalable architectures and cloud infrastructure for high-performance systems. Recent focus on <strong>AI-powered product experiences</strong>, RAG pipelines, MCP integrations, and Voice AI using Vapi and ElevenLabs.
+      </p>
+    </header>
+
+    <section>
+      <h2>Highlights</h2>
+      <div class="highlights">
+        <div class="highlight">
+          <div class="highlight-num">26 yrs</div>
+          <div class="highlight-label">Building production web applications</div>
+        </div>
+        <div class="highlight">
+          <div class="highlight-num">99.9%</div>
+          <div class="highlight-label">Uptime delivered as Lead Engineer at NewDay (fintech)</div>
+        </div>
+        <div class="highlight">
+          <div class="highlight-num">#5</div>
+          <div class="highlight-label">Product Hunt of the Day — Scale8 (Co-CTO)</div>
+        </div>
+        <div class="highlight">
+          <div class="highlight-num">~20%</div>
+          <div class="highlight-label">Processing efficiency gain via system rewrite</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Stack</h2>
+      <div class="stack">
+        <span class="chip">TypeScript</span>
+        <span class="chip">React</span>
+        <span class="chip">Next.js</span>
+        <span class="chip">Node.js</span>
+        <span class="chip">GraphQL</span>
+        <span class="chip">Python</span>
+        <span class="chip">FastAPI</span>
+        <span class="chip">Supabase</span>
+        <span class="chip">PostgreSQL</span>
+        <span class="chip">AWS</span>
+        <span class="chip">GCP</span>
+        <span class="chip">Azure</span>
+        <span class="chip">OpenAI</span>
+        <span class="chip">RAG</span>
+        <span class="chip">MCP</span>
+        <span class="chip">Voice AI</span>
+        <span class="chip">Vapi</span>
+        <span class="chip">ElevenLabs</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Connect</h2>
+      <div class="links-grid">
+        <a class="link-card" href="https://www.linkedin.com/in/barzanti/" target="_blank" rel="noopener">
+          <div class="link-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.5 18.5v-9h-3v9h3zM7 8.25A1.75 1.75 0 1 0 7 4.75a1.75 1.75 0 0 0 0 3.5zm11.5 10.25v-5.1c0-2.7-1.45-3.95-3.4-3.95-1.55 0-2.25.85-2.65 1.45V9.5h-3v9h3v-5.1c0-1.4.7-2.15 1.85-2.15 1.05 0 1.7.7 1.7 2.15v5.1h2.5z"/></svg>
+          </div>
+          <div class="link-body">
+            <div class="link-title">LinkedIn</div>
+            <div class="link-desc">linkedin.com/in/barzanti</div>
+          </div>
+        </a>
+
+        <a class="link-card" href="https://github.com/a-barzanti" target="_blank" rel="noopener">
+          <div class="link-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.65.71 1.03 1.6 1.03 2.71 0 3.84-2.34 4.68-4.57 4.93.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+          </div>
+          <div class="link-body">
+            <div class="link-title">GitHub</div>
+            <div class="link-desc">github.com/a-barzanti</div>
+          </div>
+        </a>
+
+        <a class="link-card" href="https://barzanti.com/portfolio/" rel="noopener">
+          <div class="link-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+          <div class="link-body">
+            <div class="link-title">Portfolio</div>
+            <div class="link-desc">barzanti.com/portfolio</div>
+          </div>
+        </a>
+
+        <a class="link-card" href="https://github.com/scale8/scale8-tag-manager-and-analytics" target="_blank" rel="noopener">
+          <div class="link-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <div class="link-body">
+            <div class="link-title">Featured Work — Scale8</div>
+            <div class="link-desc">Open-source Tag Manager & Analytics</div>
+          </div>
+        </a>
+
+        <a class="link-card" href="mailto:a.barzanti@gmail.com">
+          <div class="link-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
+          </div>
+          <div class="link-body">
+            <div class="link-title">Email</div>
+            <div class="link-desc">a.barzanti@gmail.com</div>
+          </div>
+        </a>
+
+        <a class="link-card" href="https://github.com/a-barzanti/SupabaseAuthKit" target="_blank" rel="noopener">
+          <div class="link-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="link-body">
+            <div class="link-title">SupabaseAuthKit</div>
+            <div class="link-desc">Next.js + Supabase RBAC starter</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      <span>© <span id="year"></span> Alessandro Barzanti</span>
+      <span class="mono" style="font-size: 0.78rem;">barzanti.com · barzanti.info</span>
+    </footer>
+
+  </div>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
